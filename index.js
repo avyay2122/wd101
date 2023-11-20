@@ -1,5 +1,5 @@
 let loginForm = document.getElementById("login-form");
-const dinput = document.getElementById("date");
+const dinput = document.getElementById("dob");
 
 dinput.addEventListener('input', (event) => {
   const date = new Date(event.target.value);
@@ -7,7 +7,6 @@ dinput.addEventListener('input', (event) => {
   let age = now.getFullYear() - date.getFullYear();
   const month = now.getMonth() - date.getMonth();
   const datem = now.getDate() - date.getDate();
-  console.log(month,datem)
   if (month<0){
     age--;
   }
@@ -41,7 +40,7 @@ const showDetails = () => {
       const nameCell = `<td>${entry.name}</td>`;
       const emailCell = `<td>${entry.email}</td>`;
       const passwordCell = `<td>${entry.password}</td>`;
-      const dobCell = `<td>${entry.date}</td>`;
+      const dobCell = `<td>${entry.dob}</td>`;
       const acceptTermsCell = `<td>${entry.tc}</td>`;
       const row = `<tr>${nameCell} ${emailCell} ${passwordCell} ${dobCell} ${acceptTermsCell}</tr>`;
       return row;
@@ -67,13 +66,13 @@ const saveForm = (event) => {
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
-  const date = document.getElementById("date").value;
+  const dob = document.getElementById("dob").value;
   const tc = document.getElementById("tc").checked;
   const newData = {
     name,
     email,
     password,
-    date,
+    dob,
     tc,
   };
   storedData.push(newData);
